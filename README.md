@@ -26,6 +26,7 @@ Supertonic.exe [parámetros opcionales] "El texto que quieres que diga"
 ### Argumentos Opcionales
 - `--steps <numero>`: Controla el número de pasos de la red neuronal. A menor cantidad (ej: 20), el audio se genera muchísimo más rápido pero con menor calidad. A mayor cantidad (ej: 50 o más), la voz es de alta calidad pero tarda un poco más. **Valor por defecto: 50**.
 - `--speed <decimal>`: Ajusta la velocidad de la voz. **Valor por defecto: 1.3**.
+- `--voice <nombre_archivo>`: Permite seleccionar el modelo acústico o tipo de voz (ej: `F1`, `F2`, `F3` para voces femeninas, o `M1`, `M2`, `M3` para voces masculinas). No es necesario incluir la extensión `.json`. **Valor por defecto: M2**.
 
 ### Ejemplos
 
@@ -36,7 +37,7 @@ Supertonic.exe "Hola, soy una voz artificial local"
 
 **Ejemplo Rápido (baja latencia, ideal para asistentes rápidos):**
 ```bash
-Supertonic.exe --steps 20 --speed 1.5 "Tengo una reunión agendada a las 5 de la tarde."
+Supertonic.exe --steps 20 --speed 1.5 --voice F1 "Tengo una reunión agendada a las 5 de la tarde."
 ```
 
 ## Compilación desde el Código Fuente
