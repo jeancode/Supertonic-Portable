@@ -17,6 +17,7 @@ namespace Supertonic
 
             int totalStep = 50;
             float speed = 1.3f;
+            string voice = "M2";
             List<string> textParts = new List<string>();
 
             for (int i = 0; i < args.Length; i++)
@@ -28,6 +29,10 @@ namespace Supertonic
                 else if (args[i] == "--speed" && i + 1 < args.Length)
                 {
                     float.TryParse(args[++i], System.Globalization.NumberStyles.Any, System.Globalization.CultureInfo.InvariantCulture, out speed);
+                }
+                else if (args[i] == "--voice" && i + 1 < args.Length)
+                {
+                    voice = args[++i];
                 }
                 else
                 {
@@ -46,7 +51,8 @@ namespace Supertonic
             string saveDir = Path.Combine(baseDir, "results");
             bool useGpu = false;
 
-            var voiceStylePaths = new List<string> { Path.Combine(baseDir, "assets", "voice_styles", "M2.json") };
+            string voiceFile = voice.EndsWith(".json") ? voice : $"{voice}.json";
+            var voiceStylePaths = new List<string> { Path.Combine(baseDir, "assets", "voice_styles", voiceFile) };
             var langList = new List<string> { "es" };
             var textList = new List<string> { texto };
 
